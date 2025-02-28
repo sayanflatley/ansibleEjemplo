@@ -1,0 +1,17 @@
+- name:         "Instalación de curl en máquinas de docker"
+  hosts:        all
+  gather_facts: False
+  
+  tasks:
+    - name:               "Asegurar que apt está actualizado con la información de los repos"
+      apt:
+        update_cache:     True
+     
+    - name:               "Asegurar que tenemos curl instalado"
+      apt:
+        state:            present
+        name:             curl
+        
+    - name:
+      shell:              curl google.es
+        
